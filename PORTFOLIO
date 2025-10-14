@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHITRARASU J | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #dfe3e7, #089dbb);
+      color: #050505;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0, 95, 115, 0.9);
+      color: #f6f4f4;
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      color: #f8f8f8;
+      text-decoration: black;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav ul li a::after {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background: #000000;
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 60px 20px;
+      border-radius: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0077b6, #05414e);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%);
+      animation: wave 12s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes wave {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      object-fit: cover;
+      z-index: 1;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      z-index: 1;
+      position: relative;
+      color: #0a2342;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 16px;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 50px 30px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+      text-decoration: #000000;
+    }
+
+    #about h2,
+    #skills h2,
+    #contact h2,
+    #resume h2,
+    #projects h2 {
+      color: #1a063c;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 16px;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      margin: 0 auto;
+      line-height: 1.6;
+      display: block;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #00b4d8;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: rgba(72, 202, 228, 0.2);
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 14px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+      min-width: 160px;
+      max-width: 220px;
+    }
+
+    .skill::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: all 0.5s;
+    }
+
+    .skill:hover::before {
+      left: 100%;
+    }
+
+    .skill:hover {
+      color: #fff;
+      background: #48cae4;
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project {
+      background: rgba(224, 247, 250, 0.25);
+      padding: 20px;
+      border-radius: 20px;
+      width: 300px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%);
+      animation: wave 15s linear infinite;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .project h3 {
+      margin-bottom: 12px;
+      color: #0077b6;
+    }
+
+    .project p {
+      font-size: 14px;
+    }
+
+    .resume a {
+      display: inline-block;
+      background: #00b4d8;
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: all 0.5s;
+    }
+
+    .resume a:hover::after {
+      left: 100%;
+    }
+
+    .resume a:hover {
+      background: #0077b6;
+    }
+
+    .contact p {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .contact a {
+      color: #0077b6;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #00b4d8;
+    }
+
+    footer {
+      background: rgba(0, 95, 115, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .project-list,
+      .skill-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CHITRARASU J</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <img src="chitrarasu.jpg" alt="Profile">
+    <h2>I am CHITRARASU</h2>
+    <p>Electrical and Electronics Engineering student with strong core knowledge and a growing interest in software
+      development. Passionate about combining engineering with coding to build practical solutions.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m currently pursuing my B.E in Electrical and Electronics Engineering at Velalar College of Engineering and
+      Technology. I have hands-on experience in IoT, Raspberry Pi-based systems, and have showcased innovative projects
+      at IIT Madras. I’m also building skills in Java, SQL, and web development.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">Java</div>
+      <div class="skill">SQL</div>
+      <div class="skill">IoT</div>
+      <div class="skill">Power Electronics</div>
+      <div class="skill">Instrumentation</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Autonomous Surface Vehicle</h3>
+        <p>Built a Raspberry Pi-based autonomous vehicle with ultrasonic sensors for waterbody cleaning. Recognized at
+          IIT Madras for innovation.</p>
+      </div>
+      <div class="project">
+        <h3>Three Phase Fault Detection</h3>
+        <p>IoT-based system to detect and report three-phase power line faults in real-time for smart grid applications.</p>
+      </div>
+      <div class="project">
+        <h3>3D Interpreter</h3>
+        <p>A Python and NLP-based system to convert hand gestures into spoken language using HTML and CSS for interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="resume">
+    <h2>Download My Resume</h2>
+    <a href="CHITRARASU Resume.pdf" download>Download PDF</a>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:arasuarasu889@gmail.com">arasuarasu889@gmail.com</a></p>
+    <p>Phone: 6369440442</p>
+    <p><a href="https://www.linkedin.com/in/chitrarasu-j" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/Chitrarasu" target="_blank">GitHub</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 CHITRARASU J | Portfolio Website</p>
+  </footer>
+</body>
+</html>
