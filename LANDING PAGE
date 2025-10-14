@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LandPro Realty | Find Your Perfect Land</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #f5f6fa;
+      color: #333;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; border-radius: 10px; }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      color: #fff;
+      padding: 15px 5%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #facc15;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 25px; }
+    nav ul li a {
+      color: #fff;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      position: relative;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #facc15;
+      transition: width 0.3s;
+    }
+    nav ul li a:hover::after { width: 100%; }
+    .hero {
+      background: linear-gradient(115deg, rgba(79,70,229,0.85), rgba(37,99,235,0.8)),
+                  url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 90vh;
+      padding: 0 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 0;
+    }
+    .hero h1, .hero p, .hero a {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 15px;
+      animation: fadeDown 1s ease;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .hero p {
+      font-size: 19px;
+      max-width: 750px;
+      margin-bottom: 25px;
+      opacity: 0.95;
+      animation: fadeUp 1s ease 0.3s;
+    }
+    .hero a {
+      display: inline-block;
+      background: linear-gradient(135deg, #facc15, #eab308);
+      color: #0f172a;
+      padding: 14px 32px;
+      font-weight: 600;
+      border-radius: 30px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .hero a:hover {
+      background: linear-gradient(135deg, #fde047, #facc15);
+      transform: scale(1.07);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    @keyframes fadeDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .properties {
+      padding: 90px 5%;
+      text-align: center;
+      background: #f9fafb;
+    }
+    .properties h2 {
+      font-size: 34px;
+      margin-bottom: 60px;
+      color: #0f172a;
+    }
+    .property-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .property-card {
+      flex: 1 1 300px;
+      max-width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .property-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .property-card h3 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #4f46e5;
+      font-size: 20px;
+    }
+    .property-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .services {
+      background: #fff;
+      padding: 90px 5%;
+      text-align: center;
+    }
+    .services h2 {
+      font-size: 34px;
+      margin-bottom: 60px;
+      color: #0f172a;
+    }
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .service-card {
+      flex: 1 1 220px;
+      max-width: 260px;
+      background: #f3f4f6;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: #4f46e5;
+      font-size: 18px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .why-choose {
+      background: linear-gradient(180deg, #f9fafb, #eef1f8);
+      padding: 90px 5%;
+      text-align: center;
+    }
+    .why-choose h2 {
+      font-size: 34px;
+      margin-bottom: 50px;
+      color: #0f172a;
+    }
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .feature-item {
+      flex: 1 1 220px;
+      max-width: 260px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .feature-item h4 {
+      margin-bottom: 10px;
+      color: #4f46e5;
+      font-size: 18px;
+    }
+    .feature-item p {
+      font-size: 14px;
+      color: #555;
+    }
+    .stats {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 80px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      text-align: center;
+    }
+    .stat {
+      flex: 1 1 150px;
+      transition: transform 0.3s ease;
+    }
+    .stat:hover { transform: scale(1.05); }
+    .stat h3 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      color: #facc15;
+    }
+    .stat p { font-size: 17px; color: #fff; }
+    .contact {
+      background: linear-gradient(180deg, #f9fafb, #e5e7eb);
+      padding: 90px 5%;
+      text-align: center;
+    }
+    .contact h2 {
+      font-size: 34px;
+      margin-bottom: 40px;
+      color: #0f172a;
+    }
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 8px rgba(79,70,229,0.3);
+      outline: none;
+    }
+    .contact-form button {
+      background: linear-gradient(135deg, #4f46e5, #4338ca);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(135deg, #4338ca, #3730a3);
+      transform: scale(1.05);
+    }
+    footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: 36px; }
+      .property-cards, .service-cards, .features-list, .stats { flex-direction: column; }
+      .property-card, .service-card, .feature-item, .stat { max-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">LandPro Realty</div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-choose">Why Us</a></li>
+          <li><a href="#stats">Stats</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>Find Your Perfect Land</h1>
+    <p>Premium land listings for sale across top locations. Transparent deals, expert guidance, and hassle-free property acquisition.</p>
+    <a href="#properties">View Properties</a>
+  </section>
+
+  <section class="properties" id="properties">
+    <h2>Featured Properties</h2>
+    <div class="property-cards">
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=700&q=80" alt="Land 1">
+        <h3>Sunny Acres</h3>
+        <p>5 acres land with excellent connectivity near the city outskirts.</p>
+      </div>
+      <div class="property-card">
+        <img src="Green-Valley-View_0.jpg" alt="Land 2">
+        <h3>Green Valley Plot</h3>
+        <p>2 acres farm land surrounded by greenery and fresh air.</p>
+      </div>
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=700&q=80" alt="Land 3">
+        <h3>Lakeview Estate</h3>
+        <p>Prime land with a scenic view of the nearby lake and hills.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="service-card">
+        <h3>Buy Land</h3>
+        <p>Explore top-quality land listings with full legal verification and transparent pricing.</p>
+      </div>
+      <div class="service-card">
+        <h3>Sell Land</h3>
+        <p>Get expert guidance for listing and selling your land at the best market price.</p>
+      </div>
+      <div class="service-card">
+        <h3>Consultation</h3>
+        <p>Professional advice for investment, development, and land management solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose" id="why-choose">
+    <h2>Why Choose LandPro</h2>
+    <div class="features-list">
+      <div class="feature-item">
+        <h4>Verified Listings</h4>
+        <p>Every property is verified and legally cleared for purchase or investment.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Expert Agents</h4>
+        <p>Experienced professionals to guide you through smooth transactions.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Competitive Pricing</h4>
+        <p>Affordable rates with transparent negotiations, no hidden costs.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Customer Support</h4>
+        <p>24/7 assistance for all your queries and property-related needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="stat">
+      <h3>200+</h3>
+      <p>Properties Sold</p>
+    </div>
+    <div class="stat">
+      <h3>150+</h3>
+      <p>Happy Clients</p>
+    </div>
+    <div class="stat">
+      <h3>15+</h3>
+      <p>Years of Experience</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 LandPro Realty | Designed by You</p>
+  </footer>
+</body>
+</html>
